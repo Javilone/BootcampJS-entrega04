@@ -21,6 +21,6 @@ Challenge:
 Sea el número que sea, lo quiero mostrar siempre con dos digitos (es decir el 1 -> 01, el 2 -> 02, el 10 -> 10, el 11 -> 11, etc), investiga como puedes formatear un número para que siempre tenga dos dígitos.
 
 
-![Captura de pantalla 2024-04-19 a las 12 56 27](https://github.com/Javilone/BootcampJS-entrega04/assets/97972589/0dae54bb-1412-4443-b7e7-a2364ec13c36)
+![Captura de pantalla 2024-04-22 a las 11 46 23](https://github.com/Javilone/BootcampJS-entrega04/assets/97972589/b1315c46-48ca-4463-89c5-348a262f21de)
 ![Captura de pantalla 2024-04-19 a las 12 56 48](https://github.com/Javilone/BootcampJS-entrega04/assets/97972589/4818a6e1-349f-444b-8a90-9729207977d1)
 ![Captura de pantalla 2024-04-19 a las 12 57 07](https://github.com/Javilone/BootcampJS-entrega04/assets/97972589/08c19fdf-093c-4545-93fb-3c14e114fa1a)
