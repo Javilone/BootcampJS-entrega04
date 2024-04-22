@@ -6,6 +6,9 @@ const numeroTurno = document.getElementById(
   "numero-turno"
 ) as HTMLHeadingElement;
 const reset = document.getElementById("reset-button") as HTMLButtonElement;
+const inputButton = document.getElementById(
+  "input-button"
+) as HTMLButtonElement;
 const inputTurnos = document.getElementById("input-turnos") as HTMLInputElement;
 const textoTurnos = document.getElementById(
   "texto-turno"
@@ -26,6 +29,7 @@ function cambiarTurno(cambiar: string) {
     turno = 1;
     numeroTurno.innerText = turno.toString().padStart(2, "0");
     textoTurnos.innerText = "Por favor, acérquese al mostrador";
+    inputTurnos.value = "";
   } else if (cambiar === "input") {
     turno = parseInt(inputTurnos.value);
     if (turno > 99 || turno < 1) {
@@ -41,4 +45,5 @@ function cambiarTurno(cambiar: string) {
 flechaDer.addEventListener("click", () => cambiarTurno("flechaDer"));
 flechaIzq.addEventListener("click", () => cambiarTurno("flechaIzq"));
 reset.addEventListener("click", () => cambiarTurno("reset"));
+inputButton.addEventListener("click", () => cambiarTurno("input"));
 inputTurnos.addEventListener("keydown", () => cambiarTurno("input"));
