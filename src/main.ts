@@ -2,9 +2,7 @@ import "./style.css";
 
 const flechaIzq = document.getElementById("flechaIzq");
 const flechaDer = document.getElementById("flechaDer");
-const numeroTurno = document.getElementById(
-  "numero-turno"
-) as HTMLHeadingElement;
+const numeroTurno = document.getElementById("numero-turno");
 const reset = document.getElementById("reset-button");
 const inputButton = document.getElementById("input-button");
 const inputTurnos = document.getElementById("input-turnos");
@@ -17,7 +15,8 @@ function cambiarTurno(cambiar: string): void {
     inputTurnos !== null &&
     inputTurnos !== undefined &&
     inputTurnos instanceof HTMLInputElement &&
-    textoTurnos instanceof HTMLParagraphElement
+    textoTurnos instanceof HTMLParagraphElement &&
+    numeroTurno instanceof HTMLHeadingElement
   ) {
     if (cambiar === "flechaDer" && turno < 99) {
       turno++;
