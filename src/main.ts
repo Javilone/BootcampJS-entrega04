@@ -8,7 +8,9 @@ const inputButton = document.getElementById("input-button");
 const inputTurnos = document.getElementById("input-turnos");
 const textoTurnos = document.getElementById("texto-turno");
 
-let turno = 1;
+let turno: number = 1;
+const siguienteMensaje: string = "Por favor, acérquese al mostrador";
+const turnoErrorMensaje: string = "Fuera de rango: Entre 1 y 99";
 
 function siguienteTurno(): void {
   if (
@@ -20,7 +22,7 @@ function siguienteTurno(): void {
   ) {
     turno++;
     numeroTurno.innerText = turno.toString().padStart(2, "0");
-    textoTurnos.innerText = "Por favor, acérquese al mostrador";
+    textoTurnos.innerText = siguienteMensaje;
   }
 }
 
@@ -34,7 +36,7 @@ function anteriorTurno(): void {
   ) {
     turno--;
     numeroTurno.innerText = turno.toString().padStart(2, "0");
-    textoTurnos.innerText = "Por favor, acérquese al mostrador";
+    textoTurnos.innerText = siguienteMensaje;
   }
 }
 
@@ -48,7 +50,7 @@ function reiniciarTurno(): void {
   ) {
     turno = 1;
     numeroTurno.innerText = turno.toString().padStart(2, "0");
-    textoTurnos.innerText = "Por favor, acérquese al mostrador";
+    textoTurnos.innerText = siguienteMensaje;
     inputTurnos.value = "";
   }
 }
@@ -64,10 +66,10 @@ function escribirTurno(): void {
     turno = parseInt(inputTurnos.value);
     if (turno > 99 || turno < 1) {
       numeroTurno.innerText = "¡Error!";
-      textoTurnos.innerText = "Fuera de rango: Entre 1 y 99";
+      textoTurnos.innerText = turnoErrorMensaje;
     } else {
       numeroTurno.innerText = inputTurnos.value.padStart(2, "0");
-      textoTurnos.innerText = "Por favor, acérquese al mostrador";
+      textoTurnos.innerText = siguienteMensaje;
     }
   }
 }
