@@ -10,7 +10,35 @@ const textoTurnos = document.getElementById("texto-turno");
 
 let turno = 1;
 
-function cambiarTurno(cambiar: string): void {
+function siguienteTurno(): void {
+  if (
+    turno < 99 &&
+    flechaDer !== null &&
+    flechaDer !== undefined &&
+    textoTurnos instanceof HTMLParagraphElement &&
+    numeroTurno instanceof HTMLHeadingElement
+  ) {
+    turno++;
+    numeroTurno.innerText = turno.toString().padStart(2, "0");
+    textoTurnos.innerText = "Por favor, acérquese al mostrador";
+  }
+}
+
+function anteriorTurno(): void {
+  if (
+    turno > 1 &&
+    flechaIzq !== null &&
+    flechaIzq !== undefined &&
+    textoTurnos instanceof HTMLParagraphElement &&
+    numeroTurno instanceof HTMLHeadingElement
+  ) {
+    turno--;
+    numeroTurno.innerText = turno.toString().padStart(2, "0");
+    textoTurnos.innerText = "Por favor, acérquese al mostrador";
+  }
+}
+
+function reiniciarTurno(): void {
   if (
     inputTurnos !== null &&
     inputTurnos !== undefined &&
@@ -18,48 +46,48 @@ function cambiarTurno(cambiar: string): void {
     textoTurnos instanceof HTMLParagraphElement &&
     numeroTurno instanceof HTMLHeadingElement
   ) {
-    if (cambiar === "flechaDer" && turno < 99) {
-      turno++;
-      numeroTurno.innerText = turno.toString().padStart(2, "0");
+    turno = 1;
+    numeroTurno.innerText = turno.toString().padStart(2, "0");
+    textoTurnos.innerText = "Por favor, acérquese al mostrador";
+    inputTurnos.value = "";
+  }
+}
+
+function escribirTurno(): void {
+  if (
+    inputTurnos !== null &&
+    inputTurnos !== undefined &&
+    inputTurnos instanceof HTMLInputElement &&
+    textoTurnos instanceof HTMLParagraphElement &&
+    numeroTurno instanceof HTMLHeadingElement
+  ) {
+    turno = parseInt(inputTurnos.value);
+    if (turno > 99 || turno < 1) {
+      numeroTurno.innerText = "¡Error!";
+      textoTurnos.innerText = "Fuera de rango: Entre 1 y 99";
+    } else {
+      numeroTurno.innerText = inputTurnos.value.padStart(2, "0");
       textoTurnos.innerText = "Por favor, acérquese al mostrador";
-    } else if (cambiar === "flechaIzq" && turno > 1) {
-      turno--;
-      numeroTurno.innerText = turno.toString().padStart(2, "0");
-      textoTurnos.innerText = "Por favor, acérquese al mostrador";
-    } else if (cambiar === "reset") {
-      turno = 1;
-      numeroTurno.innerText = turno.toString().padStart(2, "0");
-      textoTurnos.innerText = "Por favor, acérquese al mostrador";
-      inputTurnos.value = "";
-    } else if (cambiar === "input") {
-      turno = parseInt(inputTurnos.value);
-      if (turno > 99 || turno < 1) {
-        numeroTurno.innerText = "¡Error!";
-        textoTurnos.innerText = "Fuera de rango: Entre 1 y 99";
-      } else {
-        numeroTurno.innerText = inputTurnos.value.padStart(2, "0");
-        textoTurnos.innerText = "Por favor, acérquese al mostrador";
-      }
     }
   }
 }
 
-if (flechaDer !== null && flechaDer !== undefined) {
-  flechaDer.addEventListener("click", () => cambiarTurno("flechaDer"));
+if (flechaDer instanceof HTMLImageElement) {
+  flechaDer.addEventListener("click", siguienteTurno);
 }
 
-if (flechaIzq !== null && flechaIzq !== undefined) {
-  flechaIzq.addEventListener("click", () => cambiarTurno("flechaIzq"));
+if (flechaIzq instanceof HTMLImageElement) {
+  flechaIzq.addEventListener("click", anteriorTurno);
 }
 
-if (reset !== null && reset !== undefined) {
-  reset.addEventListener("click", () => cambiarTurno("reset"));
+if (reset instanceof HTMLButtonElement) {
+  reset.addEventListener("click", reiniciarTurno);
 }
 
-if (inputTurnos !== null && inputTurnos !== undefined) {
-  inputTurnos.addEventListener("keydown", () => cambiarTurno("input"));
+if (inputTurnos instanceof HTMLInputElement) {
+  inputTurnos.addEventListener("keydown", escribirTurno);
 }
 
-if (inputButton !== null && inputButton !== undefined) {
-  inputButton.addEventListener("click", () => cambiarTurno("input"));
+if (inputButton instanceof HTMLButtonElement) {
+  inputButton.addEventListener("click", escribirTurno);
 }
